@@ -10,7 +10,7 @@ if DBConnection :
     print("Connection established ..........")
 
 cur = DBConnection.cursor()
-cur.execute('create table statdb (nomtable text not NULL unique, nbligne integer not null, nbattr integer )')
+cur.execute('create table IF NOT EXISTS statdb (nomtable text not NULL unique, nbligne integer not null, nbattr integer )')
 cur.close()
 
 DBConnection.close()
