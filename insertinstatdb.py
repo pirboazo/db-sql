@@ -33,8 +33,8 @@ for table in liste:
     #attr=attrCursor.execute(requetattr).fetchall()
     data = [table[0],nbline[0],len(attr)]
     MajtabCursor.execute("insert into statdb (nomtable,nbligne,nbattr) values (?, ?, ?)", data)
-    MajtabCursor.commit()
-    
+    DBCon.commit()
+
 nblinCursor.close()
 attrCursor.close()
 MajtabCursor.close()
