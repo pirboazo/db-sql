@@ -31,8 +31,8 @@ for table in liste:
     #print(requetattr)
     attr=attrCursor.execute(f"pragma table_info('{table[0]}')").fetchall()
     #attr=attrCursor.execute(requetattr).fetchall()
-    data = [table[0],nbline[0],len(attr)]
-    MajtabCursor.execute("insert into statdb (nomtable,nbligne,nbattr) values (?, ?, ?)", data)
+    data = [nbline[0],len(attr),table[0]]
+    MajtabCursor.execute("update statdb set nbligne = ? ,nbattr=? where nomtable = ? ", data)
     DBCon.commit()
 
 nblinCursor.close()
