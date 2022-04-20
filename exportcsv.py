@@ -25,7 +25,7 @@ try:
       requete= "select * from "+ table[0]
       cursor.execute(requete)
       with open("csv/"+table[0]+"_data.csv", "w", newline='') as csv_file:
-          csv_writer = csv.writer(csv_file,delimiter=",")
+          csv_writer = csv.writer(csv_file,delimiter=",", quotechar='"')
           csv_writer.writerow([i[0] for i in cursor.description])
           csv_writer.writerows(cursor)
           dirpath = os.getcwd() + "csv/"+table[0]+"_data.csv"
