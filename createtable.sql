@@ -7,8 +7,6 @@ CREATE TABLE "albums"
 		ON DELETE NO ACTION ON UPDATE NO ACTION
 )
 ;
-CREATE TABLE sqlite_sequence(name,seq)
-;
 CREATE TABLE "artists"
 (
     [ArtistId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -130,8 +128,6 @@ CREATE TABLE "tracks"
     FOREIGN KEY ([MediaTypeId]) REFERENCES "media_types" ([MediaTypeId]) 
 		ON DELETE NO ACTION ON UPDATE NO ACTION
 )
-;
-CREATE TABLE sqlite_stat1(tbl,idx,stat)
 ;
 CREATE TABLE statdb (nomtable text not NULL unique, nbligne integer not null, nbattr integer )
 ;

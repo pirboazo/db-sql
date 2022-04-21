@@ -12,7 +12,7 @@ print("Connection established ..........")
 
 # Ouvrir un curseur
 ltable = DBCon.cursor()
-liste = ltable.execute("select name from sqlite_master where type= ?",['table']).fetchall()
+liste = ltable.execute("select name from sqlite_master where name  NOT LIKE 'sqlite_%' and type= ?",['table']).fetchall()
 
 ltable.close()
 

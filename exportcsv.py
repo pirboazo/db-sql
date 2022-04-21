@@ -10,7 +10,7 @@ try:
 
 
   ltable = conn.cursor()
-  liste = ltable.execute("select name,sql from sqlite_master where type= ?",['table']).fetchall()
+  liste = ltable.execute("select name,sql from sqlite_master where name  NOT LIKE 'sqlite_%' and type= ?",['table']).fetchall()
 
   ltable.close()
   cursor = conn.cursor()
