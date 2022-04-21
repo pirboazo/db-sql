@@ -1,0 +1,13 @@
+.import --csv --skip 1 'csv/albums_data.csv' albums
+.import --csv --skip 1 'csv/sqlite_sequence_data.csv' sqlite_sequence
+.import --csv --skip 1 'csv/artists_data.csv' artists
+.import --csv --skip 1 'csv/customers_data.csv' customers
+.import --csv --skip 1 'csv/employees_data.csv' employees
+.import --csv --skip 1 'csv/genres_data.csv' genres
+.import --csv --skip 1 'csv/invoices_data.csv' invoices
+.import --csv --skip 1 'csv/invoice_items_data.csv' invoice_items
+.import --csv --skip 1 'csv/media_types_data.csv' media_types
+.import --csv --skip 1 'csv/playlists_data.csv' playlists
+.import --csv --skip 1 'csv/playlist_track_data.csv' playlist_track
+.import --csv --skip 1 'csv/tracks_data.csv' tracks
+.import --csv --skip 1 'csv/statdb_data.csv' statdb

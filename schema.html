@@ -1,0 +1,159 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<title>schema sqlite</title>  
+</head>  
+<body>  
+Ceci est le contenu de la page.  
+<table>
+<TR><TD>albums</TD>
+<TD>CREATE TABLE &quot;albums&quot;
+(
+    [AlbumId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Title] NVARCHAR(160)  NOT NULL,
+    [ArtistId] INTEGER  NOT NULL,
+    FOREIGN KEY ([ArtistId]) REFERENCES &quot;artists&quot; ([ArtistId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)</TD>
+</TR>
+<TR><TD>sqlite_sequence</TD>
+<TD>CREATE TABLE sqlite_sequence(name,seq)</TD>
+</TR>
+<TR><TD>artists</TD>
+<TD>CREATE TABLE &quot;artists&quot;
+(
+    [ArtistId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Name] NVARCHAR(120)
+)</TD>
+</TR>
+<TR><TD>customers</TD>
+<TD>CREATE TABLE &quot;customers&quot;
+(
+    [CustomerId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [FirstName] NVARCHAR(40)  NOT NULL,
+    [LastName] NVARCHAR(20)  NOT NULL,
+    [Company] NVARCHAR(80),
+    [Address] NVARCHAR(70),
+    [City] NVARCHAR(40),
+    [State] NVARCHAR(40),
+    [Country] NVARCHAR(40),
+    [PostalCode] NVARCHAR(10),
+    [Phone] NVARCHAR(24),
+    [Fax] NVARCHAR(24),
+    [Email] NVARCHAR(60)  NOT NULL,
+    [SupportRepId] INTEGER,
+    FOREIGN KEY ([SupportRepId]) REFERENCES &quot;employees&quot; ([EmployeeId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)</TD>
+</TR>
+<TR><TD>employees</TD>
+<TD>CREATE TABLE &quot;employees&quot;
+(
+    [EmployeeId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [LastName] NVARCHAR(20)  NOT NULL,
+    [FirstName] NVARCHAR(20)  NOT NULL,
+    [Title] NVARCHAR(30),
+    [ReportsTo] INTEGER,
+    [BirthDate] DATETIME,
+    [HireDate] DATETIME,
+    [Address] NVARCHAR(70),
+    [City] NVARCHAR(40),
+    [State] NVARCHAR(40),
+    [Country] NVARCHAR(40),
+    [PostalCode] NVARCHAR(10),
+    [Phone] NVARCHAR(24),
+    [Fax] NVARCHAR(24),
+    [Email] NVARCHAR(60),
+    FOREIGN KEY ([ReportsTo]) REFERENCES &quot;employees&quot; ([EmployeeId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)</TD>
+</TR>
+<TR><TD>genres</TD>
+<TD>CREATE TABLE &quot;genres&quot;
+(
+    [GenreId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Name] NVARCHAR(120)
+)</TD>
+</TR>
+<TR><TD>invoices</TD>
+<TD>CREATE TABLE &quot;invoices&quot;
+(
+    [InvoiceId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [CustomerId] INTEGER  NOT NULL,
+    [InvoiceDate] DATETIME  NOT NULL,
+    [BillingAddress] NVARCHAR(70),
+    [BillingCity] NVARCHAR(40),
+    [BillingState] NVARCHAR(40),
+    [BillingCountry] NVARCHAR(40),
+    [BillingPostalCode] NVARCHAR(10),
+    [Total] NUMERIC(10,2)  NOT NULL,
+    FOREIGN KEY ([CustomerId]) REFERENCES &quot;customers&quot; ([CustomerId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)</TD>
+</TR>
+<TR><TD>invoice_items</TD>
+<TD>CREATE TABLE &quot;invoice_items&quot;
+(
+    [InvoiceLineId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [InvoiceId] INTEGER  NOT NULL,
+    [TrackId] INTEGER  NOT NULL,
+    [UnitPrice] NUMERIC(10,2)  NOT NULL,
+    [Quantity] INTEGER  NOT NULL,
+    FOREIGN KEY ([InvoiceId]) REFERENCES &quot;invoices&quot; ([InvoiceId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([TrackId]) REFERENCES &quot;tracks&quot; ([TrackId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)</TD>
+</TR>
+<TR><TD>media_types</TD>
+<TD>CREATE TABLE &quot;media_types&quot;
+(
+    [MediaTypeId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Name] NVARCHAR(120)
+)</TD>
+</TR>
+<TR><TD>playlists</TD>
+<TD>CREATE TABLE &quot;playlists&quot;
+(
+    [PlaylistId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Name] NVARCHAR(120)
+)</TD>
+</TR>
+<TR><TD>playlist_track</TD>
+<TD>CREATE TABLE &quot;playlist_track&quot;
+(
+    [PlaylistId] INTEGER  NOT NULL,
+    [TrackId] INTEGER  NOT NULL,
+    CONSTRAINT [PK_PlaylistTrack] PRIMARY KEY  ([PlaylistId], [TrackId]),
+    FOREIGN KEY ([PlaylistId]) REFERENCES &quot;playlists&quot; ([PlaylistId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([TrackId]) REFERENCES &quot;tracks&quot; ([TrackId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)</TD>
+</TR>
+<TR><TD>tracks</TD>
+<TD>CREATE TABLE &quot;tracks&quot;
+(
+    [TrackId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Name] NVARCHAR(200)  NOT NULL,
+    [AlbumId] INTEGER,
+    [MediaTypeId] INTEGER  NOT NULL,
+    [GenreId] INTEGER,
+    [Composer] NVARCHAR(220),
+    [Milliseconds] INTEGER  NOT NULL,
+    [Bytes] INTEGER,
+    [UnitPrice] NUMERIC(10,2)  NOT NULL,
+    FOREIGN KEY ([AlbumId]) REFERENCES &quot;albums&quot; ([AlbumId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([GenreId]) REFERENCES &quot;genres&quot; ([GenreId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([MediaTypeId]) REFERENCES &quot;media_types&quot; ([MediaTypeId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)</TD>
+</TR>
+<TR><TD>statdb</TD>
+<TD>CREATE TABLE statdb (nomtable text not NULL unique, nbligne integer not null, nbattr integer )</TD>
+</TR>
+</table>
+</body>  
+</html>
