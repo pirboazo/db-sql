@@ -24,7 +24,7 @@ vous en connaitrez la liste par la commande .help
 .databases               List names and files of attached databases
 .dbconfig ?op? ?val?     List or change sqlite3_db_config() options
 
-pour connaitre les arguments de chaque commandes taper .help "la commande"
+pour connaitre les arguments d'une commandes saisir .help "la commande"
 
 > .help import
 > .import FILE TABLE       Import data from FILE into TABLE
@@ -49,13 +49,23 @@ ou
 
 
 
-il est possible d'écrire des scripts SQL et de les exécuter non interactivement.
+il est possible d'écrire des scripts **SQL** et des scripts contenant des **dot-commandes** et de les exécuter non interactivement.
 
 
 ## Exemple
 Recréatation de chinook.db sous un autre nom
 
 Traitement des tables
-> sqlite3 chinook-test.db < creatable.sql
+> sqlite3 chinook-test.db < createtable.sql
 
 Import des données.
+>sqlite3 chinook-test.db < re-import.sql
+
+contenu du fichier sql
+cat re-import.sql
+.output import-csv-all.sql
+.read "pre-import-csv.sql"         
+.read "import-csv-all.sql"
+.output res.md
+.mode markdown
+select * from statdb ;

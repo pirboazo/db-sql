@@ -13,7 +13,10 @@ Le site de SQLite : https://sqlite.org/index.html
 
 
 Une conférence du créateur de SQLite sur youtube :
-https://www.youtube.com/watch?v=Jib2AmRb_rk
+https://www.youtube.com/watch?v=
+
+### SQLite cli
+https://www.sqlite.com/cli.html
 
 ### SQLite et python
 Python Data Access Tutorial
