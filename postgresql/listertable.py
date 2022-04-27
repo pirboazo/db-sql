@@ -7,7 +7,7 @@ DBCon = None
 
 # Etablissement de la connection
 try:
-    DBCon = psycopg2.connect(database="chinook", user="chinook", password="chinook", host="192.168.10.84", port="5432")
+    DBCon = psycopg2.connect(database="chinook", user="chinook", password="chinook", host="192.168.10.131", port="5432")
     print("Connection established ..........")
 
 # lister les tables
