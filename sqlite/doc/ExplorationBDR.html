@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Exploration d’une Base Relationnelle en SQL avec python.</title>
+		<style>
+			body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1, h2, h3 {
+	font-weight: 400;
+	margin-bottom: 0;
+}
+.remark-slide-content h1 { font-size: 3em; }
+.remark-slide-content h2 { font-size: 2em; }
+.remark-slide-content h3 { font-size: 1.6em; }
+.footnote {
+	position: absolute;
+	bottom: 3em;
+}
+li p { line-height: 1.25em; }
+.red { color: #fa0000; }
+.large { font-size: 2em; }
+a, a > code {
+	color: rgb(249, 38, 114);
+	text-decoration: none;
+}
+code {
+	background: none repeat scroll 0 0 #F8F8FF;
+  border: 1px solid #DEDEDE;
+  border-radius: 3px 	;
+  padding: 0 0.2em;
+}
+.remark-code, .remark-inline-code { font-family: "Bitstream Vera Sans Mono", "Courier", monospace; }
+.remark-code-line-highlighted     { background-color: #373832; }
+.pull-left {
+	float: left;
+	width: 47%;
+}
+.pull-right {
+	float: right;
+	width: 47%;
+}
+.pull-right ~ p {
+	clear: both;
+}
+#slideshow .slide .content code {
+	font-size: 0.8em;
+}
+#slideshow .slide .content pre code {
+	font-size: 0.9em;
+	padding: 15px;
+}
+.main-title, .title {
+	background: #272822;
+	color: #777872;
+	text-shadow: 0 0 20px #333;
+}
+.title h1, .title h2, .main-title h1, .main-title h2 {
+	color: #f3f3f3;
+	line-height: 0.8em;
+}
+/* Custom */
+.remark-code {
+	display: block;
+	padding: 0.5em;
+}
+
+		</style>
+	</head>
+	<body>
+		<textarea id="source">
+class: center, middle, main-title
+
+# Exploration d’une Base Relationnelle en SQL avec python.
+
+---
+class: center, middle, title
+
+## Comment utiliser python pour décrire une base SQLITE?
+
+---
+class: center, middle, main-title
+
+# Introduction
+Comme nous avons utilisé sqlitebrowser pour parcourir notre base exemple de manière interactive, nous allons écrire un programme nous donnant des informations sur cette base.
+
+
+---
+class: center, middle, title
+
+## Au programme
+
+---
+### Apprendre
+
+1. à se connecter à une base.
+1. la logique de fonctionnement des interrogations
+ 1. Création d’un curseur
+ 1. Exécution d’une requête
+ 1. parcours des lignes retournées
+
+
+---
+### Retrouver
+
+1. Le nombre de tables de la base
+1. La liste des tables avec
+ 1. Le nombre d&#39;enregistrements.
+ 1. Le nombre d&#39;attributs des tables.
+
+
+---
+### Mémoriser ces informations dans la base
+
+1. Description de la table statdb ( nom, nbrec, nbattribut )
+1. Création d’une table.
+ 1. Insérer des enregistrements dans la table statdb.
+ 1. Mettre à jour des informations nbrec, nbattribut.
+
+
+---
+## Extraire
+
+1. Export des données de la base.
+ 1. un fichier par table aux format csv
+ 1. un fichier de recréation des tables.
+
+Création d’un rapport html avec les informations de la base.
+
+
+---
+## Pré-requis
+Avoir installé
+
+
+- un environnement python 3 ( Interpréteur, module sqlite3 )
+- une base exemple ( chinook.db )
+
+
+---
+## Réflexion
+Sur l’accès aux données d’un fichier
+
+
+- Que feriez-vous pour accéder aux données d’un fichier en python?
+- Comment liriez-vous les enregistrements?
+
+Imaginez un processus pour une base de données.
+
+
+---
+## Mise en oeuvre
+1.1 Se connecter Interactivement
+
+1.2 Se connecter à une base de données en python c’est
+
+
+1. importer le driver de connexion.
+1. se connecter à la base.
+
+A l’aide de deuxdes liens que je vous ai transmis faire une connexion interactive à la base SQLite chinook.db que vous avez téléchargé sur votre machine( en python)
+
+Puis garder dans un fichier connection.py les instructions de connexion.
+
+**Questions** :
+
+> Que se passe-t-il si on se trompe de nom de fichier ?
+> 
+> Que devez vous faire pour vous connecter à la base postgresql se trouvant sur la machine à l‘adresse 192.168.10.156 ?
+> Avez vous besoin d&#39;informations supplémentaires?
+
+
+---
+## Scripter
+Écrire le script réalisant la même opération en y ajoutant la fermeture de la base.  
+
+
+---
+### la logique d’interrogation
+A l&#39;aide des deux mêmes liens décrire cette logique de lecture.
+
+> Créer un script lisant dans la table employees les (nom, prénom et date de naissance )
+> Ecrire les résultat sur le standard output ou dans un fichier
+
+Faire une version avec fetchall() ou  avec fetchone().
+
+
+---
+### Retrouver des informations de structure de la base
+Pour cela nous allons nous aider d’une table donnant des informations sur le contenu de la base.
+Ces informations sont propres à chaque moteur de base de données. ,  il s’agit
+
+
+- Pour sqlite de la table sqlite_master.
+- Pour oracle de la table/vue user_tables / ALL_TABLES.
+- pour mysql de la table : information_schema.tables
+- pour postgresql de la table information_schema.tables
+
+#### Le nombre de tables de la base ,
+Donc retrouver le nombre de table se fera par un comptage du nombre de ligne en une requête sur la table sqlite_master
+
+1 - Ecrire la requête en vous aidant de sqlitebrowser
+2 - l’intégrer dans un script.
+
+#### La liste des tables.
+
+1. Avec le nombre d&#39;enregistrements.
+Quelle requête ?
+1. le nombre d&#39;attributs des tables attention c’est spécifique à la base, pas dans la norme SQL.
+
+#### Mémoriser ces informations dans la base
+
+1. Description
+Voici la description de la table statdb ( nom, nbrec, nbattribut )
+
+STATDB  3 attribut
+
+```
+>    NOMTABLE 30 caracteres Nom de la table Unique non null
+>    NBLIGNE integer Nombre d’enregistrement de la table non null
+>    NBATTR integer Nombre d’attribut de la table non null
+```
+
+1. Création d’une table.  
+Créer cette table inter-activement ou par programme.
+1. Insérer des enregistrements dans la table statdb.
+```
+ soit en ne mettant que le nom de la table
+ soit en remplissant toutes des colonnes
+```
+1. Mettre à jour lles informations nb record, nb attribut.  
+en utilisant la commande update
+
+#### Export des données de la base.
+En utilisant le module csv
+
+
+- exporter chaque table dans un fichier csv
+- parallèlement créer un fichier contenant ordres sql de création des tables
+
+#### Création d’un rapport.
+En Markdown ou en html et contenant :   
+
+
+- Le nom et  la taille de la base.
+- Le nombre de tables.
+- La liste des tables avec le nombre d’enregistrement et un lien sur la structure de celle-ci
+
+
+		</textarea>
+		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+		<script>
+			var slideshow = remark.create();
+		</script>
+		<script></script>
+	</body>
+</html>
