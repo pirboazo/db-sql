@@ -1,7 +1,7 @@
 # DB-sql
 
 
-Un ensemble de scripts pour une courte formation à SQL avec python
+Un ensemble de scripts pour une courte formation à SQL avec python en utilisant sqlite
 
 
 ## Au programme
