@@ -1,6 +1,6 @@
 #!/home/pboizot/src/DB-sql/bin/python
 
-# lister les tables
+# lister les tables de la base chinook
 
 # import du driver de connection sqlite3
 import sqlite3
