@@ -104,7 +104,7 @@ Au travers d&#39;un des outils très utilisé : La Base de Données Relationelle
 **Notion de transaction**.
 - **Où**
  - Sur un support, qui peut être, un espace mémoire, le disque local, un point dans les nuages, une base de données locale, distante...
-- **Comment** 
+- **Comment**
  - Par un des mécanismes mis à disposition par votre language ou une [API](https://fr.wikipedia.org/wiki/Interface_de_programmation) disponible.
 
 
@@ -130,7 +130,7 @@ Plusieurs besoins ont amené l&#39;apparition des SGBD dans les entreprises.
 Dans un fichier, les données sont ordonnées suivant une organisation fixe.
 
 Par exemple un Ficher des éléves :
-** Format fixe** 
+** Format fixe**
 
 
 1. NumID 9 caratere
@@ -154,9 +154,9 @@ etc...
 ### Format avec séparateurs
 
 1. NumID,
-1. NOM, 
+1. NOM,
 1. PRENOM,
-1. Genre, 
+1. Genre,
 1. DateNaissance,
 1. AnnéeEtude,
 1. Special
@@ -184,25 +184,25 @@ Dans une entreprise vendant du matériel et de la maintenance plusieurs services
 
 1. les ventes
 1. la logistique
-1. l&#39;ateier 
+1. l&#39;ateier
 
 Chacun à besoin d&#39;informations communes et d&#39;informations spécifiques à son métier.
 
 Dans les premieres années ( décénies 50-70 ) chaque service avait ses informations.
-Donc assez rapidement est apparu des solutions permettant de partager les informations communes.  
+Donc assez rapidement est apparu des solutions permettant de partager les informations communes.
 Afin d&#39;éviter une multitude modification au niveau donnée, programme etc.
 
 
 ---
 ### Liste de SGBD
-**Document à lire** 
-[Article](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_de_base_de_donn%C3%A9es) de Wikipédia aborde 
+**Document à lire**
+[Article](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_de_base_de_donn%C3%A9es) de Wikipédia aborde
 
 
 - les raisons de la naissance,
 - les fonctionnalités,
 - L&#39;histoire
-- et propose une typologie 
+- et propose une typologie
 
 
 ---
@@ -246,8 +246,8 @@ Depuis les années 1970 de nombreuses implémentations de SGBD ont vu le jour, s
 1. Postgresql
 1. SQLite
 
-Certaines ont disparu du paysage médiatique : 
-Informix, Sybase, Ingres, Progress, Dbase 
+Certaines ont disparu du paysage médiatique :
+Informix, Sybase, Ingres, Progress, Dbase
 
 **Les autres ( No-SQL )**
 
@@ -292,7 +292,7 @@ Nous ne parlerons dans cette présentation que de ce qui est relatif aux **SGBD-
 
 ---
 ## Le modèle
-Le schéma conceptuel des bases relationnelles est le modèle Entité-Relation 
+Le schéma conceptuel des bases relationnelles est le modèle Entité-Relation
 
 
 - Les entités
@@ -321,23 +321,23 @@ Le [cours](http://tecfaetu.unige.ch/staf/staf-h/tassini/staf2x/Heidi/last_bd.htm
 
 
 ---
-### Cardinalité un à un 
+### Cardinalité un à un
 ![unaun](./Image3.jpg)
 
 
 ---
-### Cardinalité un à plusieurs 
+### Cardinalité un à plusieurs
 ![una+](./Image4.jpg)
 
 
 ---
-### Cardinalité plusieurs à plusieurs 
+### Cardinalité plusieurs à plusieurs
 ![una+](./Image5.jpg)
 
 
 ---
 ### Le processus de Conception
-La construction d’un schéma conceptuel peut se réaliser de la manière suivante 
+La construction d’un schéma conceptuel peut se réaliser de la manière suivante
 
 
 1. Déterminer la liste des entités.
@@ -387,9 +387,9 @@ Une contrainte d’intégrité référentielle est générée entre chaque colon
 Toute relation binaire un à plusieurs est traduite :
 
 
-- soit par un report de clé : 
-  l’identifiant de l’entité participant à la relation côté N est ajoutée comme colonne supplémentaire à la table représentant l’autre entité. 
-  Cette colonne est parfois appelée clé étrangère. 
+- soit par un report de clé :
+  l’identifiant de l’entité participant à la relation côté N est ajoutée comme colonne supplémentaire à la table représentant l’autre entité.
+  Cette colonne est parfois appelée clé étrangère.
   Le cas échéant, les attributs spécifiques à la relation sont eux aussi ajoutés à la même table ;
 - soit par une table spécifique dont les caractéristiques sont les suivantes :
  - le nom de la table est le nom de la relation ;
@@ -406,11 +406,11 @@ Toute relation binaire un à un est traduite, au choix, par l’une des trois so
 - report de clé d’une table dans l’autre (2) ;
 - création d’une table spécifique reliant les clés des deux entités (3).
 
-Les attributs spécifiques de cette relation sont 
+Les attributs spécifiques de cette relation sont
 
 
-- ajoutés à la table résultant de la fusion (1), 
-- reportés avec la clé (2), 
+- ajoutés à la table résultant de la fusion (1),
+- reportés avec la clé (2),
 - ou insérés dans la table spécifique (3).
 
 
@@ -468,7 +468,7 @@ Values ('DS3','Tesla',1999);
 - Mise à jour de données dans une table :
 
 ```SQL
-Update voiture set annee_construction=2019 
+Update voiture set annee_construction=2019
 where nom='DS3'
   and marque='Tesla'
   and annee_construction=1999;
@@ -477,7 +477,7 @@ where nom='DS3'
 - Suppression de données dans une table :
 
 ```SQL
-delete from voiture 
+delete from voiture
 where nom='DS3'
   and marque='Tesla'
   and annee_construction=2019;
@@ -512,7 +512,7 @@ create table CONTRAT (
 create index IX_CONTRAT on CONTRAT(NumCli,NumContr);
 ;
 ```
-> 
+>
 
 
 ---
@@ -523,7 +523,7 @@ Les mots clés **GRANT et REVOKE **permettent d&#39;autoriser des opérations à
 Le langage de contrôle des transactions est utilisé pour le contrôle transactionnel dans une base de données, c’est-à-dire les caractéristiques des transactions, la validation et l’annulation des modifications
 Les mots clefs sont **COMMIT, SAVEPOINT, ROLLBACK, SET TRANSACTION**
 
-> 
+>
 
 
 ---
@@ -553,7 +553,7 @@ SQL s&#39;appuie sur la théorie des ensembles
     + En SQL, il est possible d'enchaîner plusieurs jointures dans la même instruction SELECT.
 ```
 ```SQL
-        SELECT * FROM Produit A, Détail_Commande B 
+        SELECT * FROM Produit A, Détail_Commande B
         WHERE A.CodePrd=B.CodePrd ;
 ```
 
@@ -614,13 +614,15 @@ Par exemple voici a syntaxe de l&#39;ordre SQL en version 8.1 de postgresql comp
 >     [ OFFSET début ]
 >     [ FOR { UPDATE | SHARE } [ OF nom_table [, ...] ] [ NOWAIT ] ]
 
-> avec éléments_from qui peut être :
+---
+Select : SQL:2003
+> **avec éléments_from qui peut être** :
 
 > [ ONLY ] nom_table [ * ] [ [ AS ] alias [ ( alias_colonne [, ...] ) ] ]
 >     ( select ) [ AS ] alias [ ( alias_colonne [, ...] ) ]
 >     nom_fonction ( [ argument [, ...] ] ) [ AS ] alias [ ( alias_colonne [, ...] | définition_colonne [, ...] ) ]
 >     nom_fonction ( [ argument [, ...] ] ) AS ( définition_colonne [, ...] )
->     éléments_from [ NATURAL ] type_jointure éléments_from [ ON  
+>     éléments_from [ NATURAL ] type_jointure éléments_from [ ON
 >     condition_jointure | USING ( colonne_jointure [, ...] ) ]
 
 
@@ -640,6 +642,8 @@ Par exemple voici a syntaxe de l&#39;ordre SQL en version 8.1 de postgresql comp
 >     [ FETCH { FIRST | NEXT } [ total ] { ROW | ROWS } { ONLY | WITH TIES } ]
 >     [ FOR { UPDATE | NO KEY UPDATE | SHARE | KEY SHARE } [ OF nom_table [, ...] ] [ NOWAIT | SKIP LOCKED ] [...] ]
 
+---
+## Select SQL 2008
 > **avec éléments_from qui peut être :**
 >   [ ONLY ] nom_table [ * ] [ [ AS ] alias [ ( alias_colonne [, ...] ) ] ]
 >                 [ TABLESAMPLE methode_echantillonnage ( argument [, ...] ) [ REPEATABLE ( pourcentage_echantillon ) ] ]
@@ -653,6 +657,8 @@ Par exemple voici a syntaxe de l&#39;ordre SQL en version 8.1 de postgresql comp
 >                 [ WITH ORDINALITY ] [ [ AS ] alias [ ( alias_colonne [, ...] ) ] ]
 >     éléments_from [ NATURAL ] type_jointure éléments_from [ ON condition_jointure | USING ( colonne_jointure [, ...] ) ]
 
+---
+## Select SQL 2008
 > **et element_regroupement peut valoir :**
 >    ( )
 >     expression
@@ -670,7 +676,7 @@ Par exemple voici a syntaxe de l&#39;ordre SQL en version 8.1 de postgresql comp
 ### Graphique
 Une autre manière d&#39;appréhender la syntaxe  :
 
-![select](./select.png)
+![select](./select.jpg)
 
 
 ---
@@ -687,13 +693,13 @@ Cela demande  :
 - de charger une base exemple.Le site [SQLITE Tutorial](https://www.sqlitetutorial.net/sqlite-sample-database/) en propose une
 - De travailler en ligne de commande.
 
-Ou 
+Ou
 
 
-- d&#39;installer une interface graphique. comme [DB4S](https://sqlitebrowser.org/) 
+- d&#39;installer une interface graphique. comme [DB4S](https://sqlitebrowser.org/)
 ![Screenshot](./DB4S.png)
 
-Ou 
+Ou
 
 
 - installer une interface vers le langage que vous utilisez
@@ -703,7 +709,7 @@ Ou
 
 ---
 ### Online.
-On trouve sur internet des sites permettant d&#39;expérimeter SQL 
+On trouve sur internet des sites permettant d&#39;expérimeter SQL
 en voici deux :
 
 
