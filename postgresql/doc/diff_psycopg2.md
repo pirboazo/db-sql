@@ -1,5 +1,7 @@
 
-Nous allons regarder rapidement les différence entre les drivers **sqlite3** et **psycopg2**.
+## Les différences
+
+Nous allons regarder rapidement les différences entre les drivers **sqlite3** et **psycopg2**.
 
 1. l'import du driver
 
