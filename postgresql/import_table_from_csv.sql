@@ -1,5 +1,5 @@
 
-# commande d'intégration de fichier CSV dans Postgresql.
+-- commande d'intégration de fichier CSV dans Postgresql.
 
 \copy artists from 'csv/artists_data.csv' DELIMITER ',' CSV HEADER;
 \copy albums from 'csv/albums_data.csv' DELIMITER ',' CSV HEADER;

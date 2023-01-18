@@ -4,7 +4,7 @@
 import psycopg2
 
 # Etablissement de la connection
-DBCon = psycopg2.connect(database="chinook", user="chinook", password="chinook", host="192.168.10.131", port="5432")
+DBCon = psycopg2.connect(database="chinook", user="chinook", password="chinook", host="127.0.0.1", port="5432")
 
 print("Connection established ..........")
 
