@@ -24,5 +24,11 @@ Quelques explications sur les différences entre **sqlite** et **PostgreSQL**.
     1.  pg_hba.conf
 
 2. l'accés au Données
-  1. en mode cli : pgsql
+  1. en mode cli :
+  > pgsql -U chinook chinook
   1. en python. drivers psycopg2
+    1. Installation :
+  > https://www.psycopg.org/docs/install.html
+  >
+  > pip | pipenv install psycopg2-binary
+    2.
