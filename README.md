@@ -14,14 +14,18 @@ L'objet de cette présentation est d'aborder la persistance des données, au tra
 5. Expérimenter SQL
 
 
-## Expérimenter avec **sqlite** et python.
+## Expérimenter avec Python
+Pour cela nous utiliserons la plus simple des bases de données SQL et nous survolerons la mise en oeuvre avec une des bases majeures de l'**Opensource**.
+
+
+### Et **SQLite** .
 On va apprendre la logique de fonctionnement des interrogations .
 [voir le readme](sqlite/README.md) avec :
 * python
 * sqlite en ligne de commande.
-* une apliacation graphique. **DB Browser for SQLite**
+* une application graphique pour visualiser vos données et tester vos requêtes SQL. **DB Browser for SQLite**
 
 
-## Expérimenter avec **PostgreSQL** et python.
+### Et **PostgreSQL**
 Expérimenter avec SQL avec PostgreSQL demande un travail plus conséquent de préparation .
 Je ne décrirai pas [ici](postgresql/README.md) la préparation du serveur mais je vous donnerai un aperçu de l'organisation globale et une description des étapes de mise en oeuvre.
