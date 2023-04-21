@@ -23,4 +23,5 @@ On va apprendre la logique de fonctionnement des interrogations .
 
 
 ## Expérimenter avec **PostgreSQL** et python.
-La préparation du serveur.
+Expérimenter avec SQL avec PostgreSQL demande un travail plus conséquent de préparation .
+Je ne décrirai pas [ici](postgresql/README.md) la préparation du serveur mais je vous donnerai un aperçu de l'organisation globale et une description des étapes de mise en oeuvre.
