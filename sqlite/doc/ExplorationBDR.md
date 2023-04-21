@@ -53,7 +53,7 @@ Imaginez un processus pour une base de données.
   2. se connecter à la base.
 
 
-A l’aide de deuxdes liens que je vous ai transmis faire une connexion interactive à la base SQLite chinook.db que vous avez téléchargé sur votre machine( en python)
+A l’aide de deux des liens que je vous ai transmis faire une connexion interactive à la base SQLite chinook.db que vous avez téléchargé sur votre machine( en python)
 
 
 Puis garder dans un fichier connection.py les instructions de connexion.
