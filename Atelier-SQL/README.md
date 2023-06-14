@@ -10,7 +10,7 @@ Une exploration du langage [SQL](https://learnsql.fr/blog/l-histoire-des-normes-
 
 ## A votre disposition
   Vous trouverez dans le dépot GIT
-  * Une [présentation](presentation(PresV1.html)
+  * Une [présentation](presentation/PresV1.html)
   * La Base exemple [chinook](https://www.sqlitetutorial.net/sqlite-sample-database/) que vous trouverez dans le répertoire archive
   * Des exemples de code [python](python)
   * Une suite d'[exercice](sql/exercice) purement SQL
@@ -21,5 +21,3 @@ Une exploration du langage [SQL](https://learnsql.fr/blog/l-histoire-des-normes-
 ## Recommandation
 
 Dans chaque répertoire de ce dépot vous trouverez un fichier README.md donnant quelques explications sur l'objet, but de celui-ci.
-
- 
