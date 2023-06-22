@@ -13,7 +13,9 @@ voici un descritptif de la base **chinook**.  Cette base comporte 11 tables.
 
 Pour nous familiariser avec la syntaxe des ordres de définition de base ( DDL ) lire l'[article](https://learnsql.fr/blog/que-sont-ddl-dml-dql-et-dcl-en-sql/)
 
-je vous propose de recréer cette base avec des noms d'attribut en Français.
+je vous propose soit
+
+* de recréer cette base ou une partie avec des noms d'attribut en Français.
 
 exemple :
 >
@@ -31,4 +33,25 @@ devient
     [nom] NVARCHAR(120)
   )
 
-  
+* de créer des vues pour chaque table en francisant les noms.
+
+exemple :
+>
+> CREATE TABLE "artists"   
+> (   
+>     [ArtistId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,   
+>    [Name] NVARCHAR(120)   
+> )
+
+devient  
+
+  create view artistes
+  as
+  select
+    ArtistId as IdentifiantArtiste,
+    name as nom
+  from artists
+  ;
+
+
+    
