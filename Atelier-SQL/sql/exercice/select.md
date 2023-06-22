@@ -37,4 +37,4 @@ Produire la liste des Albums des artists "AC/DC", Led Zeppelin, Frank Zappa & Ca
 
 ## Limit
 
-Produire la liste des 3  artistes le plus ayant vendu le plus de tracks
+Produire la liste des 3 artistes ayant vendu le plus de tracks
