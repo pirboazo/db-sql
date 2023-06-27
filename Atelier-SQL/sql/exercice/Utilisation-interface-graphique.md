@@ -1,4 +1,4 @@
-# Utilisation interface grahique
+# Utilisation interface graphique
 
 Avec l'outil que vous avez choisi faite une description rapide de la base **Chinook**
 
